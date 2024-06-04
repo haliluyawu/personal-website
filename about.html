@@ -20,8 +20,8 @@
 
         .header {
             padding: 20px;
-            text-align: center; 
-            background: #ffde59;
+            text-align: center;
+            background: linear-gradient(90deg, #ffde59, #ffcc00);
             color: #333;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: sticky;
@@ -45,14 +45,15 @@
         }
 
         .navbar a:hover {
-            background-color: #f8f8f2;
+            background-color: #ffde59;
             color: black;
         }
 
-        .row {
+        .content {
             display: flex;
             flex-wrap: wrap;
             padding: 20px;
+            justify-content: center;
         }
 
         .side, .main {
@@ -61,41 +62,31 @@
             margin: 10px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .side {
             flex: 1;
-            min-width: 250px;
-        }
-
-        .main {
-            flex: 2;
             min-width: 300px;
+            max-width: 800px;
         }
 
-        .fakeimg {
-            background-color: #e0e0e0;
-            padding: 20px;
-            text-align: center;
-            margin: 10px 0;
-            border-radius: 8px;
-        }
-
-        .fakeimg img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin-bottom: 10px;
+        .side h3, .main h3 {
+            margin-top: 0;
         }
 
         .photo-grid, .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
+            gap: 15px;
         }
 
         .photo-grid img, .video-grid video {
             width: 100%;
             border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .photo-grid img:hover, .video-grid video:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         .photo-grid div, .video-grid div {
@@ -103,7 +94,7 @@
             background-color: #f9f9f9;
             padding: 10px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .footer {
@@ -111,11 +102,10 @@
             text-align: center;
             background: #333;
             color: white;
-            position: relative;
         }
 
         @media screen and (max-width: 800px) {
-            .row, .navbar {
+            .navbar, .content {
                 flex-direction: column;
                 align-items: center;
             }
@@ -123,6 +113,41 @@
             .side, .main {
                 width: 100%;
             }
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form input[type="submit"] {
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #ffde59;
+            color: black;
+        }
+
+        h3, h4, h5, p {
+            margin-bottom: 20px;
+        }
+
+        .fakeimg a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .fakeimg a:hover {
+            color: #ffde59;
         }
     </style>
 </head>
@@ -139,9 +164,9 @@
         <a href="article1.html">最新文章</a>
         <a href="liuyan.html">留言</a>
     </div>
-    <div class="row">
+    <div class="content">
         <div class="side" id="about">
-            <h3>关于我</h3>
+            <h3>个人简介</h3>
             <h4>我的照片</h4>
             <div class="photo-grid" id="photos">
                 <div>
@@ -152,16 +177,20 @@
                 </div>
             </div>
             <p>大家好！我是吴琴芳，欢迎大家来到我的个人网页！我出生于2003年10月1日。目前是重庆邮电大学自动化学院的一名大二在读生。本人喜欢音乐、阅读以及旅游。这里是我的个人简介，下面进行更多介绍。</p>
-            <h3>更多介绍</h3>
-            <h3>竞赛经历</h3>
-            <p>1. 2023年获第四届MathorCup高校数学建模挑战赛——大数据竞赛三等奖</p>
-            <p>2. 2024年5月获中国机器人及人工智能大赛——智慧药房赛道省级二等奖</p>
-            <p>3. 2024年5月获2024年第十四届MathorCup数学应用挑战赛一等奖</p>
-            <h4>工作经历</h4>
-            <p>1.2022年九月-2024年就职于重庆邮电大学勤工助学中心绿色书屋</p>
-            <p>2.2022年九月-2024年担任年纪辅导员助理</p>
-            <p>3.2022年九月-2024年担任班级宣传委员</p>
-            <h3>旅游经历</h3>
+            <h4>更多介绍</h4>
+            <h5>竞赛经历</h5>
+            <ul>
+                <li>2023年获第四届MathorCup高校数学建模挑战赛——大数据竞赛三等奖</li>
+                <li>2024年5月获中国机器人及人工智能大赛——智慧药房赛道省级二等奖</li>
+                <li>2024年5月获2024年第十四届MathorCup数学应用挑战赛一等奖</li>
+            </ul>
+            <h5>工作经历</h5>
+            <ul>
+                <li>2022年九月-2024年就职于重庆邮电大学勤工助学中心绿色书屋</li>
+                <li>2022年九月-2024年担任年纪辅导员助理</li>
+                <li>2022年九月-2024年担任班级宣传委员</li>
+            </ul>
+            <h5>旅游经历</h5>
             <p>这里为大家介绍我的最近一次旅游经历。在五一期间，我去往了四川的西昌，下面为部分照片。</p>
             <div class="photo-grid">
                 <div>
@@ -193,11 +222,12 @@
         <div class="main">
             <h3>兴趣爱好</h3>
             <p>下面为大家介绍我的兴趣爱好。</p>
-            <p>1.拍摄风景<br>
-               2.品尝美食<br>
-               3.旅游玩耍<br>
-               4.阅读学习<br>
-            </p>
+            <ul>
+                <li>拍摄风景</li>
+                <li>品尝美食</li>
+                <li>旅游玩耍</li>
+                <li>阅读学习</li>
+            </ul>
             <div class="photo-grid">
                 <div>
                     <img src="日出1.jpg" alt="日出">
@@ -226,11 +256,23 @@
             </div>
             <h3>课外拓展学习</h3> 
             <p>在学有余力时，开始接触课外知识，利用课余时间充实丰富自己的学习生活，拓展技能。</p>
-            <p>1.学习数学建模知识，并多次参加数模比赛，以赛代练，不断提升自我能力。</p>
-            <p>2.学习各种算法，自学python。</p>
-            <p>3.自主学习机器人Ros操作系统，STM32单片机知识。</p>
-            
+            <ul>
+                <li>学习数学建模知识，并多次参加数模比赛，以赛代练，不断提升自我能力。</li>
+                <li>学习各种算法，自学Python。</li>
+                <li>自主学习机器人ROS操作系统，STM32单片机知识。</li>
+            </ul>
+            <h3>个人信息</h3>
+            <ul>
+                <li>个人邮箱：3376829965@qq.com</li>
+                <li>联系方式：15025684386</li>
+                <li>就读学校：重庆邮电大学（大二）</li>
+                <li>主修方向：自动化</li>
+                <li>兴趣方向：ROS智能车、物流、大数据</li>
+            </ul>
         </div>
+    </div>
+    <div class="footer">
+        <h2>页脚</h2>
     </div>
 </body>
 </html>
